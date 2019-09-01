@@ -1,3 +1,4 @@
+import { ShopingListService } from './shopping-list/shoping-list.service';
 import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ShopingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
