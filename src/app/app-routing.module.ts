@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
     {path:':id', component: RecipesDetailComponent},
     {path:':id/edit', component: RecipeEditComponent}
   ]},
-  {path: 'shopping-list', component: RecipeStartComponent}
+  {path: 'shopping-list', component: ShoppingListComponent}
 ];
 
 @NgModule({
