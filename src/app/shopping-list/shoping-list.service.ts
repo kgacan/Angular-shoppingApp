@@ -6,12 +6,16 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
 export class ShopingListService {
 
   ingredientsChanged = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
 
     private ingredients: Ingredient[] = [
         new Ingredient('Apple', 5),
         new Ingredient('Tomatoes', 10)
       ];
 
+      getIngredient(index: number){
+        return this.ingredients[index];
+      }
 
       addIngredient(ingredient: Ingredient){
         this.ingredients.push(ingredient);
@@ -20,6 +24,16 @@ export class ShopingListService {
 
       getAllIngredients(){
           return this.ingredients.slice();
+      }
+
+      deleteIngredient(index: number){
+        this.ingredients.splice(index, 1);
+        this.ingredientsChanged.next(this.ingredients.slice())
+      }
+
+      updateIngredient(index: number, newIngredient: Ingredient){
+        this.ingredients[index] = newIngredient;
+        this.ingredientsChanged.next(this.ingredients.slice());
       }
 
       addIngredients(ingredients: Ingredient[]){
